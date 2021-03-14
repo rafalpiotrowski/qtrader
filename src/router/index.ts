@@ -1,12 +1,12 @@
-import { route } from 'quasar/wrappers';
+import { route } from 'quasar/wrappers'
 import {
   createMemoryHistory,
   createRouter,
   createWebHashHistory,
-  createWebHistory,
-} from 'vue-router';
-import { StateInterface } from '../store';
-import routes from './routes';
+  createWebHistory
+} from 'vue-router'
+import { StateInterface } from '../store'
+import routes from './routes'
 
 /*
  * If not building with SSR mode, you can
@@ -22,8 +22,8 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     process.env.SERVER
       ? createMemoryHistory
       : process.env.VUE_ROUTER_MODE === 'history'
-      ? createWebHistory
-      : createWebHashHistory;
+        ? createWebHistory
+        : createWebHashHistory
 
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
@@ -34,8 +34,8 @@ export default route<StateInterface>(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(
       process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE
-    ),
-  });
+    )
+  })
 
-  return Router;
-});
+  return Router
+})
